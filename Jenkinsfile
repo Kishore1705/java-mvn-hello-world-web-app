@@ -3,23 +3,23 @@ pipeline{
   stages{
       stage(changefolder){
         steps{
-          cd /home/slave2
+          sh 'cd /home/slave2'
         }
       }
     
       stage(compile){
         steps{
-          mvn compile 
+          sh 'mvn compile' 
         }
       }
       stage(build){
        steps{
-         mvn package
+         sh 'mvn package'
        }
       }
      stage(deploy){
      steps{
-        cp /home/slave2/java-mvn-hello-world-web-app/target/mvn-hello-world.war /opt/apache-tomcat-9.0.50/webapps
+        sh 'cp /home/slave2/java-mvn-hello-world-web-app/target/mvn-hello-world.war /opt/apache-tomcat-9.0.50/webapps'
         }
      } 
   }

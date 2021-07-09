@@ -1,5 +1,5 @@
 pipeline{
-  agent { label 'dev' }
+  agent { label 'slave2' }
   stages{
       stage(changefolder){
         steps{
